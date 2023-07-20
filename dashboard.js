@@ -74,62 +74,55 @@ const displayGames = function (key, game) {
       const markup = `
                         <form class='spirit__form hidden' data-game=${curGame} data-team=${currentTeam} data-opponent= ${match.dataset.opponent}>
                           <label for="${currentTeam}-rules">Knowledge of the Rules</label>
-                          <p id="score-${currentTeam}-rules">2</p>
-                          <input type="range" id="${currentTeam}-rules" min="0" max="4" /> 
+                          <div class='score-range'>
+                            <p>0</p>
+                            <p>1</p>
+                            <p>2</p>
+                            <p>3</p>
+                            <p>4</p>
+                          </div>
+                          <input type="range" data-game=${curGame} id="${currentTeam}-rules" min="0" max="4" /> 
                           <label for="${currentTeam}-contact">Fouls and Body Contact</label>
-                          <p id="score-${currentTeam}-contact">2</p>
-                          <input type="range" id="${currentTeam}-contact" min="0" max="4" />   
+                          <div class='score-range'>
+                            <p>0</p>
+                            <p>1</p>
+                            <p>2</p>
+                            <p>3</p>
+                            <p>4</p>
+                          </div>
+                          <input type="range" data-game=${curGame} id="${currentTeam}-contact" min="0" max="4" />   
                           <label for="${currentTeam}-fair-minddness">Fair-Mindeness</label>
-                          <p id="score-${currentTeam}-fair-minddness">2</p>
-                          <input type="range" id="${currentTeam}-fair-minddness" min="0" max="4" />
+                          <div class='score-range'>
+                            <p>0</p>
+                            <p>1</p>
+                            <p>2</p>
+                            <p>3</p>
+                            <p>4</p>
+                          </div>
+                          <input type="range" data-game=${curGame} id="${currentTeam}-fair-minddness" min="0" max="4" />
                           <label for="${currentTeam}-self-control">Positive Attitude and Self Control</label>
-                          <p id="score-${currentTeam}-self-control">2</p>  
-                          <input type="range" id="${currentTeam}-self-control" min="0" max="4" />
+                          <div class='score-range'>
+                          <p>0</p>
+                          <p>1</p>
+                          <p>2</p>
+                          <p>3</p>
+                          <p>4</p>
+                        </div>
+                          <input type="range" data-game=${curGame} id="${currentTeam}-self-control" min="0" max="4" />
                           <label for="${currentTeam}-communication">Communications</label>
-                          <p id="score-${currentTeam}-communication">2</p>
-                          <input type="range" id="${currentTeam}-communication" min="0" max="4" />
+                          <div class='score-range'>
+                            <p>0</p>
+                            <p>1</p>
+                            <p>2</p>
+                            <p>3</p>
+                            <p>4</p>
+                          </div>
+                          <input type="range" data-game=${curGame} id="${currentTeam}-communication" min="0" max="4" />
                           <button class='submitBtn' type="submit">Submit</button>
                         </form>`;
       dashboardMatches.insertAdjacentHTML("beforeend", markup);
       // Event listeners to update <p> tags live
-      document
-        .getElementById(`${currentTeam}-rules`)
-        .addEventListener("input", () => {
-          updateScore(`${currentTeam}-rules`, `score-${currentTeam}-rules`);
-        });
-
-      document
-        .getElementById(`${currentTeam}-contact`)
-        .addEventListener("input", () => {
-          updateScore(`${currentTeam}-contact`, `score-${currentTeam}-contact`);
-        });
-
-      document
-        .getElementById(`${currentTeam}-fair-minddness`)
-        .addEventListener("input", () => {
-          updateScore(
-            `${currentTeam}-fair-minddness`,
-            `score-${currentTeam}-fair-minddness`
-          );
-        });
-
-      document
-        .getElementById(`${currentTeam}-self-control`)
-        .addEventListener("input", () => {
-          updateScore(
-            `${currentTeam}-self-control`,
-            `score-${currentTeam}-self-control`
-          );
-        });
-
-      document
-        .getElementById(`${currentTeam}-communication`)
-        .addEventListener("input", () => {
-          updateScore(
-            `${currentTeam}-communication`,
-            `score-${currentTeam}-communication`
-          );
-        });
+      // Get the newly added form element
     }
   } else {
     const gameExistsAndSubmitted = roundRobinScores.some(
@@ -357,12 +350,6 @@ function displayFormsScore() {
     h1.removeEventListener("click", handleClickScore); // Remove previous listener
     h1.addEventListener("click", handleClickScore); // Add new listener
   });
-}
-
-function updateScore(inputId, pId) {
-  const inputElement = document.getElementById(inputId);
-  const pElement = document.getElementById(pId);
-  pElement.textContent = inputElement.value; // Update the <p> tag with the input value
 }
 
 function updateTeamLogo() {
