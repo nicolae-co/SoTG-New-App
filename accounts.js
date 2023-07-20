@@ -33,5 +33,11 @@ const account5 = {
   logo: "./assets/logoTurneu.png",
 };
 
-const accounts = [account1, account2, account3, account4, account5];
+const admin = {
+  team: "Admin",
+  username: "admin",
+  password: "admin",
+};
+
+const accounts = [account1, account2, account3, account4, account5, admin];
 export default accounts;

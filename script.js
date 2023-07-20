@@ -1,5 +1,4 @@
 import accounts from "./accounts.js";
-console.log(accounts);
 
 let currentAccount;
 
