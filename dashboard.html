@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" defer src="./dashboard.js"></script>
+    <script type="module" defer src="./nav.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- NAVIGATION -->
+    <nav class="top-nav">
+      <img src="./assets/logoTurneu.png" alt="logo-turneu" />
+      <input id="menu-toggle" type="checkbox" />
+      <label class="menu-button-container" for="menu-toggle">
+        <div class="menu-button"></div>
+      </label>
+      <ul class="menu">
+        <li id="home"><a href="dashboard.html">Home</a></li>
+        <li id="scores"><a href="scores.html">Scores</a></li>
+        <li id="results"><a href="results.html">Results</a></li>
+        <li id="about"><a href="about">About</a></li>
+        <li id="signOut"><a>Sing out</a></li>
+      </ul>
+    </nav>
+    <!-- TEAM DASHBOARD -->
+    <div class="dashboard">
+      <img class="dashboard__team--logo team__logo" src="" />
+      <div class="dashboard__matches"></div>
+    </div>
+    <!-- FOOTER -->
+    <footer>
+      <p>Created & Designed by: <span>Nicolae Cojocaru</span></p>
+      <div>
+        <p>Powered by</p>
+        <img src="./assets/logoEndzone.svg" />
+      </div>
+    </footer>
+  </body>
+</html>
