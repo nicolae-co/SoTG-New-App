@@ -312,7 +312,15 @@ a {
     border-radius: 12px;
 }
 
+.error,
+.error-scores {
+    color: var(--radical-red);
+    margin-top: 1rem;
+}
 
+.error-scores {
+    text-align: center;
+}
 
 
 footer {

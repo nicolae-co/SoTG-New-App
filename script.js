@@ -2,6 +2,7 @@ import accounts from "./accounts.js";
 
 let currentAccount;
 
+const formContainer = document.querySelector(".login");
 const form = document.querySelector(".login__form");
 form.addEventListener("submit", function (e) {
   e.preventDefault();
@@ -13,7 +14,10 @@ form.addEventListener("submit", function (e) {
     localStorage.setItem("currentAccount", JSON.stringify(currentAccount));
     window.location.href = "./dashboard.html";
   } else {
-    alert("no spirit for you");
+    const message = document.createElement("h1");
+    message.classList = "error";
+    message.textContent = "No Spirit for you!";
+    formContainer.appendChild(message);
   }
 });
 // Function to check if the username and password are valid
